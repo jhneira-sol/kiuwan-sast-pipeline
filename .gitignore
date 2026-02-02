@@ -1,0 +1,74 @@
+# Kiuwan Reports
+*.kiuwan
+kiuwan-*.log
+kiuwan-results/
+kiuwan_report/
+
+# Build outputs
+target/
+build/
+dist/
+out/
+*.class
+*.jar
+*.war
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+package-lock.json
+npm-debug.log
+yarn-error.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+ENV/
+.env
+*.egg-info/
+dist/
+.pytest_cache/
+
+# Credentials (NEVER commit)
+*.key
+*.pem
+*.crt
+.env
+.env.local
+secrets/
+credentials/
+kiuwan.properties
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.backup
+
+# Archive files
+*.zip
+*.tar
+*.tar.gz
+*.rar
