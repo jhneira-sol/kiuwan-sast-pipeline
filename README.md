@@ -219,8 +219,7 @@ Los resultados del análisis SAST se envían automáticamente a **Kiuwan Cloud**
 
 - No detecta vulnerabilidades en runtime
 - Puede generar falsos positivos
-- Requiere configuración específica por lenguaje
-- No reemplaza code reviews manuales
+- Análisis de Dependencias de Terceros
 
 ---
 
