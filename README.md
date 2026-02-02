@@ -20,7 +20,6 @@ Pipeline automatizado de **Static Application Security Testing (SAST)** integrad
 - [Uso](#-uso)
 - [Visualización de Resultados](#-visualización-de-resultados)
 - [Tecnologías Utilizadas](#️-tecnologías-utilizadas)
-- [Vulnerabilidades Detectadas](#-vulnerabilidades-detectadas)
 - [Consideraciones de Seguridad](#-consideraciones-de-seguridad)
 - [Recursos Adicionales](#-recursos-adicionales)
 
@@ -132,32 +131,20 @@ open(file_path, 'r') # ❌ Path Traversal
 
 - Cuenta de GitHub con Actions habilitado
 - Cuenta de Kiuwan Cloud (trial o licencia)
-- API credentials de Kiuwan
+- Credenciales de Kiuwan (username y password)
 - Conocimiento básico de SAST y seguridad de aplicaciones
 
 ---
 
 ## ⚙️ Configuración
 
-### 1. Configurar Secrets en GitHub
+### Configurar Secrets en GitHub
 
 Navega a `Settings > Secrets and variables > Actions` y agrega:
 
 ```
 KIUWAN_USERNAME=tu_usuario_kiuwan
 KIUWAN_PASSWORD=tu_password_kiuwan
-```
-
-### 2. Configurar Quality Gates (Opcional)
-
-Edita el workflow para ajustar umbrales de seguridad:
-
-```yaml
-# .github/workflows/main.yml
-with:
-  quality_gate: true
-  fail_on_audit: true
-  threshold: HIGH  # Opciones: HIGH, MEDIUM, LOW
 ```
 
 ---
@@ -171,14 +158,7 @@ git clone https://github.com/jhneira-sol/kiuwan-sast-pipeline.git
 cd kiuwan-sast-pipeline
 ```
 
-### 2. Ejecutar Análisis Localmente (Opcional)
-
-```bash
-# Requiere Kiuwan Local Analyzer instalado
-kiuwan-analyzer -n "MyApp" -s ./src -c
-```
-
-### 3. Ejecutar via GitHub Actions
+### 2. Ejecutar via GitHub Actions
 
 Simplemente haz push de cambios:
 
@@ -188,7 +168,7 @@ git commit -m "Test SAST analysis"
 git push origin main
 ```
 
-### 4. Monitorear Ejecución
+### 3. Monitorear Ejecución
 
 - **GitHub Actions**: Ve a la pestaña Actions para ver el estado del análisis
 - El workflow ejecutará el análisis y enviará los resultados a Kiuwan Cloud
@@ -202,22 +182,7 @@ Los resultados del análisis SAST se envían automáticamente a **Kiuwan Cloud**
 ### Acceso al Portal:
 1. Inicia sesión en [Kiuwan Cloud](https://www.kiuwan.com/)
 2. Navega a tu aplicación/proyecto
-3. Revisa los reportes generados
-
-### Información Disponible en Kiuwan Cloud:
-- 🔴 **Vulnerabilidades Críticas**
-- 🟠 **Vulnerabilidades Altas**
-- 🟡 **Vulnerabilidades Medias**
-- 🟢 **Vulnerabilidades Bajas**
-
-### Detalles del Reporte:
-- Ubicación exacta del código vulnerable (archivo:línea)
-- Descripción detallada de la vulnerabilidad
-- Nivel de riesgo (CWE, SANS Top 25)
-- Recomendaciones de remediación
-- Code snippets afectados
-- Tendencias históricas
-- Métricas de calidad de código
+3. Revisa los reportes generados con todas las vulnerabilidades detectadas
 
 ---
 
@@ -231,30 +196,6 @@ Los resultados del análisis SAST se envían automáticamente a **Kiuwan Cloud**
 | **JavaScript (Node.js)** | Lenguaje vulnerable de ejemplo |
 | **Python** | Lenguaje vulnerable de ejemplo |
 | **OWASP** | Framework de referencia de seguridad |
-
----
-
-## 🐛 Vulnerabilidades Detectadas
-
-El código de ejemplo contiene las siguientes vulnerabilidades **intencionales**:
-
-### Java (VulnServlet.java):
-- ✗ SQL Injection
-- ✗ Hardcoded Database Credentials
-- ✗ Missing Input Validation
-- ✗ Insecure Direct Object Reference
-
-### JavaScript (app-vuln.js):
-- ✗ Command Injection
-- ✗ Eval Usage
-- ✗ Prototype Pollution
-- ✗ Regular Expression DoS (ReDoS)
-
-### Python (app_vuln_py.py):
-- ✗ Path Traversal
-- ✗ SQL Injection
-- ✗ Command Injection via os.system
-- ✗ Insecure Deserialization
 
 ---
 
