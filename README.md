@@ -131,7 +131,6 @@ open(file_path, 'r') # ❌ Path Traversal
 - Cuenta de GitHub con Actions habilitado
 - Cuenta de Kiuwan Cloud (trial o licencia)
 - Credenciales de Kiuwan (username y password)
-- Conocimiento básico de SAST y seguridad de aplicaciones
 
 ---
 
