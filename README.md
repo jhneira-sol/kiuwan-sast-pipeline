@@ -214,7 +214,7 @@ Los resultados del análisis SAST se envían automáticamente a **Kiuwan Cloud**
 2. Configurar quality gates apropiados
 3. Revisar y remediar vulnerabilidades detectadas
 4. Integrar SAST temprano en el SDLC
-5. Combinar SAST con DAST para cobertura completa
+5. Combinar SCA y DAST para cobertura completa
 6. Capacitar al equipo en secure coding
 
 ### Limitaciones del SAST:
