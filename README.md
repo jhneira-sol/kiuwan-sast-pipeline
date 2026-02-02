@@ -1,4 +1,4 @@
-# 🔍 Kiuwan SAST Pipeline - Análisis de Código Estático Automatizado
+# Kiuwan SAST Pipeline - Análisis de Código Estático Automatizado
 
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/jhneira-sol/kiuwan-sast-pipeline/main.yml?branch=main&label=SAST%20Analysis)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
@@ -8,52 +8,53 @@
 
 Pipeline automatizado de **Static Application Security Testing (SAST)** integrado con **Kiuwan** mediante GitHub Actions. Este proyecto demuestra la integración de análisis de seguridad estático en workflows de CI/CD utilizando código intencionalmente vulnerable para testing.
 
-## 📋 Tabla de Contenidos
+## Tabla de Contenidos
 
-- [Descripción General](#-descripción-general)
-- [Características](#-características)
-- [Cómo Funciona](#-cómo-funciona)
-- [Arquitectura del Proyecto](#-arquitectura-del-proyecto)
-- [Código Vulnerable de Ejemplo](#-código-vulnerable-de-ejemplo)
-- [Requisitos Previos](#-requisitos-previos)
-- [Configuración](#-configuración)
-- [Uso](#-uso)
-- [Visualización de Resultados](#-visualización-de-resultados)
-- [Tecnologías Utilizadas](#️-tecnologías-utilizadas)
-- [Consideraciones de Seguridad](#-consideraciones-de-seguridad)
-- [Recursos Adicionales](#-recursos-adicionales)
+- [Descripción General](#descripción-general)
+- [Características](#características)
+- [Cómo Funciona](#cómo-funciona)
+- [Arquitectura del Proyecto](#arquitectura-del-proyecto)
+- [Código Vulnerable de Ejemplo](#código-vulnerable-de-ejemplo)
+- [Requisitos Previos](#requisitos-previos)
+- [Configuración](#configuración)
+- [Uso](#uso)
+- [Visualización de Resultados](#visualización-de-resultados)
+- [Tecnologías Utilizadas](#tecnologías-utilizadas)
+- [Consideraciones de Seguridad](#consideraciones-de-seguridad)
+- [Recursos Adicionales](#recursos-adicionales)
 
 ---
 
-## 🎯 Descripción General
+## Descripción General
 
 Este repositorio implementa un **pipeline de CI/CD con SAST** utilizando **Kiuwan**, una plataforma de análisis de seguridad de código estático. El proyecto contiene código **intencionalmente vulnerable** en múltiples lenguajes para demostrar:
 
 - Integración de SAST en GitHub Actions
 - Detección automática de vulnerabilidades de seguridad
-- Análisis multi-lenguaje (Java, JavaScript, Python, otros)
+- Análisis multi-lenguaje (Java, JavaScript, Python)
 - Envío de resultados a Kiuwan Cloud
+- Mejores prácticas de DevSecOps
 
-### 🚨 Propósito del Código Vulnerable
+### Propósito del Código Vulnerable
 
 El código en este repositorio contiene **vulnerabilidades intencionales** con fines educativos y de demostración. **NUNCA** uses este código en producción.
 
 ---
 
-## ✨ Características
+## Características
 
-- 🔄 **Análisis automatizado** en cada push o PR
-- 🌐 **Multi-lenguaje**: Java, JavaScript, Python, entre otros.
-- 🔍 **Kiuwan SAST** para análisis profundo de código
-- ☁️ **Resultados en Kiuwan Cloud** para centralizar y administrar hallazgos.
-- ⚙️ **GitHub Actions** integración CI/CD
-- 🎯 **Código vulnerable de ejemplo** para testing
-- 🛡️ **Security gates** configurables
-- 📈 **Métricas de calidad** de código
+- Análisis automatizado en cada push o PR
+- Multi-lenguaje: Java, JavaScript (Node.js), Python
+- Kiuwan SAST para análisis profundo de código
+- Resultados en Kiuwan Cloud para análisis detallado
+- GitHub Actions integración CI/CD
+- Código vulnerable de ejemplo para testing
+- Security gates configurables
+- Métricas de calidad de código
 
 ---
 
-## 🔄 Cómo Funciona
+## Cómo Funciona
 
 ```mermaid
 graph LR
@@ -65,8 +66,8 @@ graph LR
     F --> G[Enviar a Kiuwan Cloud]
     G --> H[Quality Gate Check]
     H --> I{Pasa QG?}
-    I -->|Sí| J[Build Success ✅]
-    I -->|No| K[Build Failed ❌]
+    I -->|Sí| J[Build Success]
+    I -->|No| K[Build Failed]
 ```
 
 ### Flujo del Pipeline:
@@ -81,7 +82,7 @@ graph LR
 
 ---
 
-## 🏗️ Arquitectura del Proyecto
+## Arquitectura del Proyecto
 
 ```
 kiuwan-sast-pipeline/
@@ -99,42 +100,43 @@ kiuwan-sast-pipeline/
 
 ---
 
-## 💣 Código Vulnerable de Ejemplo
+## Código Vulnerable de Ejemplo
 
 ### Java - SQL Injection
 ```java
 // VulnServlet.java - VULNERABLE
 String query = "SELECT * FROM users WHERE id = " + userId;
-statement.executeQuery(query); // ❌ SQL Injection
+statement.executeQuery(query); // SQL Injection
 ```
 
 ### JavaScript - Command Injection
 ```javascript
 // app-vuln.js - VULNERABLE
 const exec = require('child_process').exec;
-exec('ls ' + userInput); // ❌ Command Injection
+exec('ls ' + userInput); // Command Injection
 ```
 
 ### Python - Path Traversal
 ```python
 # app_vuln_py.py - VULNERABLE
 file_path = "/data/" + user_file
-open(file_path, 'r') # ❌ Path Traversal
+open(file_path, 'r') # Path Traversal
 ```
 
-> ⚠️ **Advertencia**: Estos ejemplos contienen vulnerabilidades reales. Solo para fines educativos.
+**Advertencia**: Estos ejemplos contienen vulnerabilidades reales. Solo para fines educativos.
 
 ---
 
-## 📦 Requisitos Previos
+## Requisitos Previos
 
 - Cuenta de GitHub con Actions habilitado
 - Cuenta de Kiuwan Cloud (trial o licencia)
 - Credenciales de Kiuwan (username y password)
+- Conocimiento básico de SAST y seguridad de aplicaciones
 
 ---
 
-## ⚙️ Configuración
+## Configuración
 
 ### Configurar Secrets en GitHub
 
@@ -147,7 +149,7 @@ KIUWAN_PASSWORD=tu_password_kiuwan
 
 ---
 
-## 🚀 Uso
+## Uso
 
 ### 1. Clonar el Repositorio
 
@@ -173,7 +175,7 @@ git push origin main
 
 ---
 
-## 📊 Visualización de Resultados
+## Visualización de Resultados
 
 Los resultados del análisis SAST se envían automáticamente a **Kiuwan Cloud** donde puedes visualizar:
 
@@ -184,7 +186,7 @@ Los resultados del análisis SAST se envían automáticamente a **Kiuwan Cloud**
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 | Tecnología | Propósito |
 |------------|----------|
@@ -197,9 +199,9 @@ Los resultados del análisis SAST se envían automáticamente a **Kiuwan Cloud**
 
 ---
 
-## 🔐 Consideraciones de Seguridad
+## Consideraciones de Seguridad
 
-### ⚠️ IMPORTANTE:
+### IMPORTANTE:
 
 - **NO** uses este código en producción
 - **NO** expongas tus credenciales de Kiuwan
@@ -208,22 +210,23 @@ Los resultados del análisis SAST se envían automáticamente a **Kiuwan Cloud**
 
 ### Mejores Prácticas:
 
-1. ✅ Usar GitHub Secrets para credenciales
-2. ✅ Configurar quality gates apropiados
-3. ✅ Revisar y remediar vulnerabilidades detectadas
-4. ✅ Integración temprana de análisis SAST en el SDLC
-5. ✅ Combinar SAST con DAST y SCA para cobertura completa
-6. ✅ Capacitar al equipo en secure coding
+1. Usar GitHub Secrets para credenciales
+2. Configurar quality gates apropiados
+3. Revisar y remediar vulnerabilidades detectadas
+4. Integrar SAST temprano en el SDLC
+5. Combinar SAST con DAST para cobertura completa
+6. Capacitar al equipo en secure coding
 
 ### Limitaciones del SAST:
 
 - No detecta vulnerabilidades en runtime
 - Puede generar falsos positivos
-- Análisis de Dependencias de Terceros
+- Requiere configuración específica por lenguaje
+- No reemplaza code reviews manuales
 
 ---
 
-## 📚 Recursos Adicionales
+## Recursos Adicionales
 
 - [Documentación Kiuwan](https://www.kiuwan.com/docs/)
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
@@ -231,13 +234,3 @@ Los resultados del análisis SAST se envían automáticamente a **Kiuwan Cloud**
 - [GitHub Actions Documentation](https://docs.github.com/es/actions)
 - [SANS Top 25 Software Errors](https://www.sans.org/top25-software-errors/)
 - [Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)
-
----
-
-<div align="center">
-
-**⭐ Si encuentras útil este proyecto, considera darle una estrella!**
-
-**🔒 Recuerda: Este código es vulnerable por diseño - Solo para propósitos educativos**
-
-</div>
