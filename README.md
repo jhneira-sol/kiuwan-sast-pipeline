@@ -211,8 +211,8 @@ Los resultados del análisis SAST se envían automáticamente a **Kiuwan Cloud**
 1. ✅ Usar GitHub Secrets para credenciales
 2. ✅ Configurar quality gates apropiados
 3. ✅ Revisar y remediar vulnerabilidades detectadas
-4. ✅ Integrar SAST temprano en el SDLC
-5. ✅ Combinar SAST con DAST para cobertura completa
+4. ✅ Integración temprana de análisis SAST en el SDLC
+5. ✅ Combinar SAST con DAST y SCA para cobertura completa
 6. ✅ Capacitar al equipo en secure coding
 
 ### Limitaciones del SAST:
