@@ -18,7 +18,7 @@ Pipeline automatizado de **Static Application Security Testing (SAST)** integrad
 - [Requisitos Previos](#-requisitos-previos)
 - [Configuración](#-configuración)
 - [Uso](#-uso)
-- [Resultados del Análisis](#-resultados-del-análisis)
+- [Visualización de Resultados](#-visualización-de-resultados)
 - [Tecnologías Utilizadas](#️-tecnologías-utilizadas)
 - [Vulnerabilidades Detectadas](#-vulnerabilidades-detectadas)
 - [Consideraciones de Seguridad](#-consideraciones-de-seguridad)
@@ -33,7 +33,7 @@ Este repositorio implementa un **pipeline de CI/CD con SAST** utilizando **Kiuwa
 - Integración de SAST en GitHub Actions
 - Detección automática de vulnerabilidades de seguridad
 - Análisis multi-lenguaje (Java, JavaScript, Python)
-- Generación de reportes de seguridad
+- Envío de resultados a Kiuwan Cloud
 - Mejores prácticas de DevSecOps
 
 ### 🚨 Propósito del Código Vulnerable
@@ -47,7 +47,7 @@ El código en este repositorio contiene **vulnerabilidades intencionales** con f
 - 🔄 **Análisis automatizado** en cada push o PR
 - 🌐 **Multi-lenguaje**: Java, JavaScript (Node.js), Python
 - 🔍 **Kiuwan SAST** para análisis profundo de código
-- 📊 **Reportes detallados** de vulnerabilidades
+- ☁️ **Resultados en Kiuwan Cloud** para análisis detallado
 - ⚙️ **GitHub Actions** integración CI/CD
 - 🎯 **Código vulnerable de ejemplo** para testing
 - 🛡️ **Security gates** configurables
@@ -64,7 +64,7 @@ graph LR
     C --> D[Kiuwan Analyzer Inicia]
     D --> E[Análisis SAST Multi-lenguaje]
     E --> F[Detección de Vulnerabilidades]
-    F --> G[Generar Reporte]
+    F --> G[Enviar a Kiuwan Cloud]
     G --> H[Quality Gate Check]
     H --> I{Pasa QG?}
     I -->|Sí| J[Build Success ✅]
@@ -77,7 +77,7 @@ graph LR
 2. **Checkout**: Descarga el código fuente
 3. **Setup**: Configura Kiuwan analyzer
 4. **Análisis**: Escanea código en busca de vulnerabilidades
-5. **Reporte**: Genera reporte detallado
+5. **Envío**: Los resultados se envían a **Kiuwan Cloud**
 6. **Quality Gate**: Evalúa contra umbrales de seguridad
 7. **Resultado**: Success/Failure basado en hallazgos
 
@@ -131,7 +131,7 @@ open(file_path, 'r') # ❌ Path Traversal
 ## 📦 Requisitos Previos
 
 - Cuenta de GitHub con Actions habilitado
-- Cuenta de Kiuwan (trial o licencia)
+- Cuenta de Kiuwan Cloud (trial o licencia)
 - API credentials de Kiuwan
 - Conocimiento básico de SAST y seguridad de aplicaciones
 
@@ -188,40 +188,36 @@ git commit -m "Test SAST analysis"
 git push origin main
 ```
 
-### 4. Revisar Resultados
+### 4. Monitorear Ejecución
 
-- **GitHub Actions**: Ve a la pestaña Actions
-- **Kiuwan Dashboard**: Accede a tu cuenta de Kiuwan para reportes detallados
+- **GitHub Actions**: Ve a la pestaña Actions para ver el estado del análisis
+- El workflow ejecutará el análisis y enviará los resultados a Kiuwan Cloud
 
 ---
 
-## 📊 Resultados del Análisis
+## 📊 Visualización de Resultados
 
-Kiuwan genera reportes completos que incluyen:
+Los resultados del análisis SAST se envían automáticamente a **Kiuwan Cloud** donde puedes visualizar:
 
-### Métricas de Seguridad:
+### Acceso al Portal:
+1. Inicia sesión en [Kiuwan Cloud](https://www.kiuwan.com/)
+2. Navega a tu aplicación/proyecto
+3. Revisa los reportes generados
+
+### Información Disponible en Kiuwan Cloud:
 - 🔴 **Vulnerabilidades Críticas**
 - 🟠 **Vulnerabilidades Altas**
 - 🟡 **Vulnerabilidades Medias**
 - 🟢 **Vulnerabilidades Bajas**
 
-### Tipos de Vulnerabilidades Detectadas:
-- SQL Injection
-- Command Injection
-- Cross-Site Scripting (XSS)
-- Path Traversal
-- Hardcoded Credentials
-- Insecure Deserialization
-- XML External Entities (XXE)
-- Security Misconfigurations
-- Y más según OWASP Top 10
-
-### Información del Reporte:
+### Detalles del Reporte:
 - Ubicación exacta del código vulnerable (archivo:línea)
-- Descripción de la vulnerabilidad
+- Descripción detallada de la vulnerabilidad
 - Nivel de riesgo (CWE, SANS Top 25)
 - Recomendaciones de remediación
 - Code snippets afectados
+- Tendencias históricas
+- Métricas de calidad de código
 
 ---
 
@@ -229,7 +225,7 @@ Kiuwan genera reportes completos que incluyen:
 
 | Tecnología | Propósito |
 |------------|----------|
-| **Kiuwan** | Plataforma SAST para análisis de código |
+| **Kiuwan Cloud** | Plataforma SAST para análisis de código |
 | **GitHub Actions** | Automatización CI/CD |
 | **Java** | Lenguaje vulnerable de ejemplo |
 | **JavaScript (Node.js)** | Lenguaje vulnerable de ejemplo |
