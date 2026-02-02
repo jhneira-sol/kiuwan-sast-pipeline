@@ -31,7 +31,7 @@ Este repositorio implementa un **pipeline de CI/CD con SAST** utilizando **Kiuwa
 
 - Integración de SAST en GitHub Actions
 - Detección automática de vulnerabilidades de seguridad
-- Análisis multi-lenguaje (Java, JavaScript, Python)
+- Análisis multi-lenguaje (Java, JavaScript, Python, otros)
 - Envío de resultados a Kiuwan Cloud
 - Mejores prácticas de DevSecOps
 
@@ -44,7 +44,7 @@ El código en este repositorio contiene **vulnerabilidades intencionales** con f
 ## Características
 
 - Análisis automatizado en cada push o PR
-- Multi-lenguaje: Java, JavaScript (Node.js), Python
+- Multi-lenguaje: Java, JavaScript, Python, entre otros lenguajes
 - Kiuwan SAST para análisis profundo de código
 - Resultados en Kiuwan Cloud para análisis detallado
 - GitHub Actions integración CI/CD
