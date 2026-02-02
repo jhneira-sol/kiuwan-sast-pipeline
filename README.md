@@ -1,4 +1,4 @@
-# Kiuwan SAST Pipeline - Pruebas estáticas de seguridad de aplicaciones Automatizado
+# Kiuwan SAST Pipeline - Pruebas estáticas de seguridad de aplicaciones automatizado
 
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/jhneira-sol/kiuwan-sast-pipeline/main.yml?branch=main&label=SAST%20Analysis)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
