@@ -45,7 +45,7 @@ El código en este repositorio contiene **vulnerabilidades intencionales** con f
 - 🔄 **Análisis automatizado** en cada push o PR
 - 🌐 **Multi-lenguaje**: Java, JavaScript, Python, entre otros.
 - 🔍 **Kiuwan SAST** para análisis profundo de código
-- ☁️ **Resultados en Kiuwan Cloud** para análisis detallado
+- ☁️ **Resultados en Kiuwan Cloud** para centralizar y administrar hallazgos.
 - ⚙️ **GitHub Actions** integración CI/CD
 - 🎯 **Código vulnerable de ejemplo** para testing
 - 🛡️ **Security gates** configurables
